@@ -66,16 +66,17 @@
 				url:("https://davids-restaurant.herokuapp.com/menu_items.json")
 			}).then(function (result){
 				
-				var foundItems = result.data.menu_items;
+				
+				var foundItems = [];
+				for(var i=0; i<result.data.menu_items.length; i++) {
 
-        for (var i = 0; i < foundItems.length; i++) {
-         
-          if (foundItems[i].description.toLowerCase().indexOf(searchTerm) === -1) {
-            foundItems.splice(i, 1); 
-          }
-        }
+					if (result.data.menu_items[i].description.toLowerCase().indexOf(searchTerm) !== -1) {
+						foundItems.push(result.data.menu_items[i]);
+					}
 
-        return foundItems;
+				}
+				
+			return foundItems;
 	
 			});
 			

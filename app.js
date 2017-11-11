@@ -69,9 +69,9 @@
 				var foundItems = result.data.menu_items;
 
         for (var i = 0; i < foundItems.length; i++) {
-          // if this item does not contain search term
-          if (foundItems[i].name.toLowerCase().indexOf(searchTerm) === -1) {
-            foundItems.splice(i, 1); // remove it from foundItems
+         
+          if (foundItems[i].description.toLowerCase().indexOf(searchTerm) === -1) {
+            foundItems.splice(i, 1); 
           }
         }
 
